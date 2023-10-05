@@ -7,7 +7,7 @@ const router = express.Router();
 router.post("/createTask", [
     body("title").not().isEmpty(),
     body("description").not().isEmpty(),
-    body("due_Date").not().isEmpty()],
+    body("dueDate").not().isEmpty()],
     async (req, res) => {
 
         const errors = validationResult(req);
@@ -20,7 +20,7 @@ router.post("/createTask", [
         const taskDetails = {
             title: req.body.title,
             description: req.body.description,
-            due_Date: req.body.due_Date,
+            dueDate: req.body.dueDate,
         };
 
         const newTask = new Task(taskDetails);
